@@ -46,13 +46,6 @@ RUN sh -c /bin/echo -e '12/9' | apt install -y caffe-cuda
 RUN apt install -y libprotobuf-dev protobuf-compiler
 RUN /root/torch/install/bin/luarocks install loadcaffe
 
-WORKDIR /root/
-RUN git clone https://github.com/usmanr149/deep-painterly-harmonization.git
-WORKDIR /root/deep-painterly-harmonization/
-
-RUN sh models/download_models.sh
-RUN make clean && make
-
 COPY . /root/
 
 WORKDIR /root/
